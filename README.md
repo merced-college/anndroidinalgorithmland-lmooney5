@@ -119,4 +119,17 @@ Insertion sort works like organizing a hand of playing cards: Start with the sec
 
 I tested it with a small set of scores including new scores added manually.
 
+How does binary search work in your own words?
+Binary search is a way to find a value quickly in a sorted list. You start by looking at the middle element. If it matches the value you’re searching for, you’re done. If the value is smaller or larger, you ignore half the list and repeat the search on the remaining half. You keep splitting the list in half until you either find the value or run out of elements.
+
+Why must the data be sorted before binary search can be used?
+Binary search relies on knowing which side of the list to search next. If the list is not sorted, you can’t decide whether the value is on the left or right side, and the search won’t work correctly. Sorting ensures that all higher scores are on one side and lower scores on the other, which is what binary search depends on.
+
+What variables did you use for low, high, and mid?
+low: the starting index of the current search range (initially 0).
+
+high: the ending index of the current search range (initially size - 1).
+
+mid: the middle index of the range, calculated each loop as (low + high) / 2.
+
 

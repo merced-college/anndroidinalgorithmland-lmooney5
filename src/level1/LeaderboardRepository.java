@@ -72,4 +72,44 @@ public class LeaderboardRepository {
             }
         }
     }
+
+ // Insertion Sort method
+    /**
+     * Sorts a list of ScoreEntry objects by score (high to low) using insertion sort
+     */
+    
+    public static void insertionSortScores(ArrayList<ScoreEntry> entries) {
+        for (int i = 1; i < entries.size(); i++) {
+            ScoreEntry key = entries.get(i);
+            int j = i - 1;
+
+            // Move elements with smaller score one position ahead
+            
+            while (j >= 0 && entries.get(j).getScore() < key.getScore()) {
+                entries.set(j + 1, entries.get(j));
+                j--;
+            }
+            entries.set(j + 1, key);
+        }
+    }
+    
+    public static int binarySearchScore(ArrayList<ScoreEntry> entries, int targetScore) {
+        int low = 0;
+        int high = entries.size() - 1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int midScore = entries.get(mid).getScore();
+
+            if (midScore == targetScore) {
+                return mid; // found
+            } else if (midScore < targetScore) {
+                high = mid - 1; // search left half
+            } else {
+                low = mid + 1;  // search right half
+            }
+        }
+
+        return -1; // not found
+    }
 }
